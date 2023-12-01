@@ -12,7 +12,7 @@ define tools::consul_cfg (
     instance => $facts["networking"]["hostname"],
     fqdn => $facts["networking"]["fqdn"],
     public_hostname => $facts['ec2_metadata'].get('public-hostname', 'unknown'),
-    public_ipv4 => $facts['ec2_metadata'].get('public-ipv4', 'unknown'),
+    public_ipv4 => $facts['ec2_metadata'].get('public-ipv4', $facts.get('ext_ip', 'unknown')),
     ec2_tag_name => $facts.get('ec2_tag_name', 'unknown'),
     ec2_tag_role => $facts.get('ec2_tag_role', 'unknown'),
     ec2_tag_group => $facts.get('ec2_tag_group', 'unknown'),
