@@ -8,6 +8,7 @@ define tools::consul_cfg (
   $default_meta = {
     metrics_path => "/metrics",
     groupname => $facts["groupname"],
+    role => $facts["role"],
     hostname => $facts["networking"]["hostname"],
     instance => $facts["networking"]["hostname"],
     fqdn => $facts["networking"]["fqdn"],
